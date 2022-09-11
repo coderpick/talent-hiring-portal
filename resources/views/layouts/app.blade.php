@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{  asset('assets/frontend/style.css') }}"  />
 </head>
 <body>
     <div id="app">
@@ -49,6 +50,9 @@
                                 </li>
                             @endif
                         @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a>
+                                </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

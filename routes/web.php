@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,13 @@ Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'user/', 'middleware' => ['auth', 'verified']], function () {
     Route::controller(UserDashboardController::class)->group(function () {
         Route::get('dashboard', 'index')->name('user.dashboard');
+        Route::get('profile', 'profile')->name('user.profile');
+    });
+    Route::controller(QuizController::class)->group(function () {
+        Route::get('quiz/guide', 'quizGuide')->name('quiz.guide');
+        Route::get('quiz', 'quizCreate')->name('quiz.create');
+        Route::post('quiz/store', 'quizStore')->name('quiz.store');
+        Route::get('quiz/score', 'quizScore')->name('quiz.score');
     });
 });
 

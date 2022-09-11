@@ -43,6 +43,39 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="phone"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
+                                <div class="col-md-6">
+                                    <input id="phone" type="number"
+                                        class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                        min="0" value="{{ old('phone') }}" required autocomplete="phone">
+
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="cv_link"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('CV Link') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="cv_link" type="url"
+                                        class="form-control @error('cv_link') is-invalid @enderror" name="cv_link"
+                                        value="{{ old('cv_link') }}" required autocomplete="cv_link">
+
+                                    @error('cv_link')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <div class="row mb-3">
                                 <label for="password"
